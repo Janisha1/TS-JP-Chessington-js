@@ -17,6 +17,18 @@ export default class Pawn extends Piece {
         let startPosition = this.player === Player.WHITE ? 1 : 6;
         let squareAhead = Square.at(row + direction, col);
         let squareTwoAhead = Square.at(row + direction * 2, col);
+
+        // Make sure pawn can't move off top or bottom of board
+        if(direction > 0) {
+            if(row === 7) {
+                return moves;
+            }
+        }
+        if(direction < 0) {
+            if(row === 0) {
+                return moves;
+            }
+        }
         // Check for potential moves ahead
         if(!board.getPiece(squareAhead)) {
             moves.push(squareAhead);

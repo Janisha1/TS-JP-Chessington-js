@@ -1,5 +1,6 @@
 import Square from "../square";
 import Piece from "./piece";
+import King from "./king";
 
 export default class RayPiece extends Piece {
   constructor(player) {

@@ -1,4 +1,3 @@
-//import Piece from './piece';
 import RayPiece from './rayPiece';
 
 export default class Bishop extends RayPiece {

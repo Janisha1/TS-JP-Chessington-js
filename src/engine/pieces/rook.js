@@ -8,7 +8,7 @@ export default class Rook extends Piece {
     }
 
     getAvailableMoves(board) {
-        let location = board.findPiece(this);
+        const location = board.findPiece(this);
         const row = location.row;
         const col = location.col;
         const moves = [];

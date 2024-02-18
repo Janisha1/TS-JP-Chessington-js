@@ -9,9 +9,9 @@ export default class Pawn extends Piece {
     }
 
     getAvailableMoves(board) {
-        let location = board.findPiece(this);
-        let row = location.row;
-        let col = location.col;
+        const location = board.findPiece(this);
+        const row = location.row;
+        const col = location.col;
         const moves = [];
         let direction = this.player === Player.WHITE ? 1 : -1;
         let startPosition = this.player === Player.WHITE ? 1 : 6;

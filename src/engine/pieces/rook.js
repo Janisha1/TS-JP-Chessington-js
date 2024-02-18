@@ -1,4 +1,5 @@
 import Square from '../square';
+import King from './king';
 import Piece from './piece';
 
 export default class Rook extends Piece {
@@ -33,7 +34,9 @@ export default class Rook extends Piece {
                 }
                 // Check if opposing player
                 if(piece.player !== this.player) {
-                    moves.push(potentialSquare);
+                    if(!(piece instanceof King)){
+                        moves.push(potentialSquare);
+                    }
                 }
                 // Have either come across opposing or own piece
                 break;

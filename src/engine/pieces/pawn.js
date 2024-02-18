@@ -12,9 +12,16 @@ export default class Pawn extends Piece {
         const moves = [];
         let direction = this.player === Player.WHITE ? 1 : -1;
         let startPosition = this.player === Player.WHITE ? 1 : 6;
-        moves.push(Square.at(location.row + direction, location.col));
-        if(location.row === startPosition) {
-            moves.push(Square.at(location.row + direction * 2, location.col));
+        let squareAhead = Square.at(location.row + direction, location.col);
+        let squareTwoAhead = Square.at(location.row + direction * 2, location.col);
+
+        if(!board.getPiece(squareAhead)) {
+            moves.push(squareAhead);
+            if(location.row === startPosition) {
+                if(!board.getPiece(squareTwoAhead)) {
+                    moves.push(squareTwoAhead);
+                }
+            }
         }
         return moves;
     }
